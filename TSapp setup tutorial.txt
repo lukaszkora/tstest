@@ -1,0 +1,116 @@
+1. Create app directory/folder
+
+
+2. RUN  npm init  --> initialize project, generate package.json file
+
+
+3. RUN commands that will install TypeScript with TSLint tools and config:
+npm install typescript --save-dev
+npm install tslint --save-dev
+npm install tslint-config-airbnb --save-dev
+or such 'oneliner':  npm install typescript tslint tslint-config-airbnb --save-dev
+
+
+4. RUN  npx tsc --init  --> initialize a TypeScript using npx to ensure that the local version of tsc is used
+
+
+5. Go to "tsconfig.json" file and add these lines:
+  "outDir": "dist",
+  "sourceMap": true
+
+
+6. Initialize TSLint:
+npx tslint --init
+
+
+7. Add Airbnb style-guide for tslint. Adding rules manually is possible but the easiest is to go with a well known and accepted default configuration, and Airbnb’s is one such configuration. Set "tslint.json" to:
+{
+    "defaultSeverity": "error",
+    "extends": "tslint-config-airbnb",
+    "jsRules": {},
+    "rules": {},
+    "rulesDirectory": []
+}
+
+
+8. Set the IDE to use TSLint configuration. This is the procedure for WebStorm:
+Go to File -> Settings -> Languages & Frameworks
+- go to "JavaScript" and make sure that "JavaScript language version" is set to "ECMAScript6" or higher
+- go to "TypeScript" -> "TSLint", tick "Enable" and make sure the "TSLint package" path points to the app directory node_modules\tslint, for example "C:\Projects\Private\tstest\node_modules\tslint"
+- click "APPLY"
+TSLint should be active from now on.
+
+
+5. Create "src" directory within the app root directory
+
+
+6. Create an "index.ts" file in a "src" folder with this content:
+const world = '';
+
+export function hello(word: string = world): string {
+  return `Hello ${world}! `;
+}
+
+
+7. RUN  npx tsc -w  -->  this will create "dist" directory and put compiled output javascript file into it, also it will watch for next code changes.
+
+
+8. Install npm packages:
+npm install concurrently dotenv express --save
+npm install babel-core babel-loader babel-preset-env nodemon ts-loader webpack webpack-cli webpack-dev-server webpack-node-externals @types/express @types/node @types/webpack-node-externals --save-dev
+
+
+
+9. Create "webpack.config.js" file within the app root directory:
+
+
+
+10.  Create ".babelrc" file within the app root directory:
+https://babeljs.io/docs/en/env/
+http://2ality.com/2017/02/babel-preset-env.html
+
+support browsers that have more than 5% market share:
+"targets": {
+  "browsers": "> 5%"
+}
+
+
+
+11. Create ".gitignore" file within the project directory
+12. Install "dotenv":
+npm i dotenv --save
+npm i @types/dotenv --save-dev
+
+
+
+
+https://github.com/BrianDGLS/express-ts
+https://sequelize.readthedocs.io/en/v3/
+https://codecatscoffee.com/2018/04/09/typescript-and-express-routers-as-classes/
+https://tutorialzine.com/2017/07/javascript-async-await-explained
+
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-eslint-rules"
+  ],
+  "rules": {
+    "ter-indent": [true, 4],
+    "quotemark": [true, "single"],
+    "no-console": [false],
+    "no-consecutive-blank-lines": [true, 3],
+    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "objects": "always",
+          "arrays": "always",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        },
+        "esSpecCompliant": true
+      }
+    ]
+  }
+}

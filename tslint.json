@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "ter-indent": [true, 4],
+    "no-consecutive-blank-lines": [true, 3],
+    "no-console": [false],
+    "no-trailing-whitespace": [true, "ignore-comments", "ignore-blank-lines"],
+    "one-variable-per-declaration": false,
+    "prefer-const": true
+  }
+}
