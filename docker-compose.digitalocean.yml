@@ -1,0 +1,15 @@
+version: "3"
+services:
+  serverapp:
+    build:
+      context: serverapp
+      args:
+        # This Is Client Docker Environmental Variable Setup
+      ports:
+        # Port to outside is 8080 and than changed by firewall
+        # insde container the app runs on 8080
+        # outside is accessed by port 80
+        - "3000:3000"
+      networks: all
+networks:
+  - all

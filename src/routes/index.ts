@@ -39,9 +39,12 @@ router.get('/test', (req: Request, res: Response) => {
     let testenv = process.env.TESTENV;
     console.log(testenv);
 
+    let tpe = process.env.TESTPORTENV;
+
 
     res.status(200).json({
-        message: 'routes/index.ts router.get("/test")',
+        // message: 'routes/index.ts router.get("/test")',
+        message: `just a test::: ${tpe}`,
     });
 });
 

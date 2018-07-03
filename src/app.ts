@@ -9,14 +9,21 @@ import { indexRouter } from '@routes/index';
 const app: express.Application = express();
 
 
-// The port the express app will listen on
+// // The port the express app will listen on
 const port: number = 3000;
+// The port the express app will listen on
+// const port: number = process.env.TESTPORTENV;
+// let testenv = process.env.TESTENV;
+// console.log(testenv);
+// let a = process.env.TESTPORTENV;
+
 
 
 import * as dotenv from 'dotenv';
 /* Set environmental variable fetcher */
 // const environment = require("dotenv").config();
 const environment = dotenv.config();
+
 
 
 // const world = '';
